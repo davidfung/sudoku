@@ -56,6 +56,21 @@ func printBoard() {
 func main() {
 	showGraph := flag.Bool("g", false, "show graph")
 	flag.Parse()
+	if flag.NArg() != 1 {
+		fmt.Println("Usage: sudoku [-g] <board>")
+		fmt.Println(`where <board> is a space delimited file such as:
+1 0 7 0 0 6 4 5 0
+0 2 5 3 4 0 0 0 8
+0 6 0 0 0 1 0 7 0
+0 5 3 0 0 0 0 2 9
+6 1 0 0 0 9 8 0 0
+0 0 0 6 0 2 0 0 7
+0 0 1 0 9 3 2 0 0
+0 0 8 0 0 0 0 0 0
+0 4 0 0 7 8 5 9 1
+		`)
+		return
+	}
 	flagGraph = *showGraph
 
 	fmt.Println("sudoku!")
